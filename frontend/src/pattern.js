@@ -1,6 +1,8 @@
 class Pattern {
     static all = []
     static patCont = document.getElementById("pattern-container")
+    static patForm = document.getElementById("form-container")
+
     constructor({name, difficulty, description}){
         this.name = name
         this.difficulty = difficulty
@@ -26,5 +28,17 @@ class Pattern {
 
     appendToDOM(){
         Pattern.patCont.append(this.patternHTML())
+    }
+
+    static createPattern(){
+        Pattern.patForm.innerHTML += `
+        <form id="new-pattern-form">
+            Name: <input type="type" id="name">
+            Difficulty: <input type="type" id="difficulty">
+            Description: <input type="type" id="description">
+            Submit: <input type="submit" id="create">
+        </form>
+        
+        `
     }
 }
