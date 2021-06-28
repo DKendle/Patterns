@@ -9,7 +9,10 @@ class PatternService {
         fetch(`${this.endpoint}/patterns`)
         .then(response => response.json())
         .then(patterns => {
-            debugger
-    })
+            for (const pattern of patterns) {
+                let p = new Pattern(pattern)
+                p.appendToDOM()
+            }
+        })
     }
 }
